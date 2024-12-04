@@ -10,7 +10,7 @@ from sc_kpm.utils import get_link_content_data
 from sc_kpm.utils.action_utils import execute_agent
 from tests.base_testcase import BaseTestCase
 
-from sc_kpm.identifiers import CommonIdentifiers, QuestionStatus
+from sc_kpm.identifiers import CommonIdentifiers, ActionStatus
 
 WAIT_TIME = 5
 
@@ -33,8 +33,8 @@ class AudioRecognitionAgentTestCase(BaseTestCase):
     def run_audio_recognition_agent(self, message_node):
         kwargs = dict(
             arguments={message_node: False},
-            concepts=[CommonIdentifiers.QUESTION, "action_recognize_audio"],
-            reaction=QuestionStatus.QUESTION_FINISHED_SUCCESSFULLY,
+            concepts=[CommonIdentifiers.ACTION, "action_recognize_audio"],
+            reaction=ActionStatus.ACTION_FINISHED_SUCCESSFULLY,
             wait_time=WAIT_TIME,
         )
         self.assertTrue(execute_agent(**kwargs)[1])
@@ -51,7 +51,7 @@ class AudioRecognitionAgentTestCase(BaseTestCase):
         
         with self.server.register_modules():
             message_node = ScKeynodes.resolve(
-                "test_message3", sc_types.NODE)
+                "test_message1", sc_types.NODE)
             self.assertTrue(message_node.is_valid())
             
             self.run_audio_recognition_agent(message_node)

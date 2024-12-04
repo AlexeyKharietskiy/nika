@@ -11,5 +11,5 @@ test_message2
 
 actionrecognizenode2
 ->rrel_1:test_message2;
-<-question;
+<-action;
 <-action_recognize_audio;;
