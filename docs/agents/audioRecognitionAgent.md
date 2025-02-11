@@ -10,6 +10,14 @@ This is an agent that recognizes speech spoken by the user.
 
 1. `messageAddr` -- an element of `concept_message`.
 
+**Libraries used:**
+
+* SpeechRecognition - to recognize speech.
+
+**Comment:**
+
+* Internet connection is required for the agent to work.
+
 ### Examples
 
 Examples of an input structure:
